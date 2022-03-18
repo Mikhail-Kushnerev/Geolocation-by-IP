@@ -1,5 +1,4 @@
-import requests
-import folium
+import os, requests, folium
 
 def get_info_by_ip(ip):
     try:
@@ -15,12 +14,19 @@ def get_info_by_ip(ip):
             '[Lat]': response.get('lat'),
             '[Lon]': response.get('lon'),
         }
+        
+        location = response.get('city')
 
-        for target, info in data.items():
-            print(f'{target} : {info}')
+        if os.path.isfile(f"data/{location}.txt"):
+            print('Файл с таким именем уже создан.')
+        else:
+            with open(f"data/{location}.txt", mode='a', encoding='utf-8') as f:
+                for target, info in data.items():
+                    f.write(f'{target} : {info}\n')
 
-        area = folium.Map(location=[response.get('lat'), response.get('lon')])
-        area.save(f"{response.get('query')}_{response.get('city')}.html")
+            area = folium.Map(location=[response.get('lat'), response.get('lon')])
+            area.save(f"{response.get('query')}_{location}.html")
+            print('Файл успешно создан.')
 
     except requests.exceptions.ConnectionError:
         print('[!] Please check')

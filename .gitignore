@@ -127,5 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-data/*.txt
-*.html
+data/txt/*.txt
+data/html/*.html

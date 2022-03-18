@@ -21,7 +21,7 @@ def get_info_by_ip(ip):
             print('Файл с таким именем уже создан.')
         else:
 
-            with open(f"data/{location}.txt", mode='a', encoding='utf-8') as f:
+            with open(f"data/txt/{location}.txt", mode='a', encoding='utf-8') as f:
                 for target, info in data.items():
                     f.write(f'{target} : {info}\n')
 

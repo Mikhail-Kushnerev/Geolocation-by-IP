@@ -1,9 +1,0 @@
-[IP] : 178.66.131.195
-[Int prov] : PJSC Rostelecom
-[Org] : PJSC Rostelecom North-West Region
-[Country] : Russia
-[Region Name] : St.-Petersburg
-[City] : St Petersburg
-[ZIP] : 190000
-[Lat] : 59.8983
-[Lon] : 30.2618
